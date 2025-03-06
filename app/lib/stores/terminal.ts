@@ -7,7 +7,7 @@ import { coloredText } from '~/utils/terminal';
 export class TerminalStore {
   #webcontainer: Promise<WebContainer>;
   #terminals: Array<{ terminal: ITerminal; process: WebContainerProcess }> = [];
-  #octotaskTerminal = newOctotaskShellProcess();
+  #octoataskTerminal = newOctotaskShellProcess();
 
   showTerminal: WritableAtom<boolean> = import.meta.hot?.data.showTerminal ?? atom(true);
 
@@ -19,7 +19,7 @@ export class TerminalStore {
     }
   }
   get octoataskTerminal() {
-    return this.#octotaskTerminal;
+    return this.#octoataskTerminal;
   }
 
   toggleTerminal(value?: boolean) {
@@ -28,7 +28,7 @@ export class TerminalStore {
   async attachOctotaskTerminal(terminal: ITerminal) {
     try {
       const wc = await this.#webcontainer;
-      await this.#octotaskTerminal.init(wc, terminal);
+      await this.#octoataskTerminal.init(wc, terminal);
     } catch (error: any) {
       terminal.write(coloredText.red('Failed to spawn octoatask shell\n\n') + error.message);
       return;
