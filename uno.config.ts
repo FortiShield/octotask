@@ -5,7 +5,7 @@ import { defineConfig, presetIcons, presetUno, transformerDirectives } from 'uno
 
 const iconPaths = globSync('./icons/*.svg');
 
-const collectionName = 'octotask';
+const collectionName = 'octoatask';
 
 const customIconCollection = iconPaths.reduce(
   (acc, iconPath) => {
@@ -98,12 +98,10 @@ const COLOR_PRIMITIVES = {
 };
 
 export default defineConfig({
-  safelist: [
-    ...Object.keys(customIconCollection[collectionName]||{}).map(x=>`i-octotask:${x}`)    
-  ],
+  safelist: [...Object.keys(customIconCollection[collectionName] || {}).map((x) => `i-octotask:${x}`)],
   shortcuts: {
     'octotask-ease-cubic-bezier': 'ease-[cubic-bezier(0.4,0,0.2,1)]',
-    'transition-theme': 'transition-[background-color,border-color,color] duration-150 octotask-ease-cubic-bezier',
+    'transition-theme': 'transition-[background-color,border-color,color] duration-150 octoatask-ease-cubic-bezier',
     kdb: 'bg-octotask-elements-code-background text-octotask-elements-code-text py-1 px-1.5 rounded-md',
     'max-w-chat': 'max-w-[var(--chat-max-width)]',
   },
@@ -117,7 +115,7 @@ export default defineConfig({
   theme: {
     colors: {
       ...COLOR_PRIMITIVES,
-      octotask: {
+      octoatask: {
         elements: {
           borderColor: 'var(--octotask-elements-borderColor)',
           borderColorActive: 'var(--octotask-elements-borderColorActive)',

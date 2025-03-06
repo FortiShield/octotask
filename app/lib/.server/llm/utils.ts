@@ -45,7 +45,7 @@ export function extractPropertiesFromMessage(message: Omit<Message, 'id'>): {
 }
 
 export function simplifyOctotaskActions(input: string): string {
-  // Using regex to match octotaskAction tags that have type="file"
+  // Using regex to match octoataskAction tags that have type="file"
   const regex = /(<octotaskAction[^>]*type="file"[^>]*>)([\s\S]*?)(<\/octotaskAction>)/g;
 
   // Replace each matching occurrence
@@ -82,10 +82,10 @@ export function createFilesContext(files: FileMap, useRelativePath?: boolean) {
         filePath = path.replace('/home/project/', '');
       }
 
-      return `<file path="${filePath}">\n${codeWithLinesNumbers}\n</file>`;
+      return `<octotaskAction type="file" filePath="${filePath}">${codeWithLinesNumbers}</octotaskAction>`;
     });
 
-  return `<codebase>${fileContexts.join('\n\n')}\n\n</codebase>`;
+  return `<octotaskArtifact id="code-content" title="Code Content" >\n${fileContexts.join('\n')}\n</octotaskArtifact>`;
 }
 
 export function extractCurrentContext(messages: Message[]) {

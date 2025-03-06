@@ -35,7 +35,6 @@ export async function detectProjectCommands(files: FileContent[]): Promise<Proje
         return {
           type: 'Node.js',
           setupCommand: `npm install`,
-
           startCommand: `npm run ${availableCommand}`,
           followupMessage: `Found "${availableCommand}" script in package.json. Running "npm run ${availableCommand}" after installation.`,
         };
@@ -81,7 +80,7 @@ export function createCommandsMessage(commands: ProjectCommands): Message | null
 <octotaskAction type="start">${commands.startCommand}</octotaskAction>
 `;
   }
-  
+
   return {
     role: 'assistant',
     content: `
@@ -94,7 +93,7 @@ ${commandString}
 }
 
 export function escapeOctotaskArtifactTags(input: string) {
-  // Regular expression to match octotaskArtifact tags and their content
+  // Regular expression to match octoataskArtifact tags and their content
   const regex = /(<octotaskArtifact[^>]*>)([\s\S]*?)(<\/octotaskArtifact>)/g;
 
   return input.replace(regex, (match, openTag, content, closeTag) => {
@@ -110,7 +109,7 @@ export function escapeOctotaskArtifactTags(input: string) {
 }
 
 export function escapeOctotaskAActionTags(input: string) {
-  // Regular expression to match octotaskArtifact tags and their content
+  // Regular expression to match octoataskArtifact tags and their content
   const regex = /(<octotaskAction[^>]*>)([\s\S]*?)(<\/octotaskAction>)/g;
 
   return input.replace(regex, (match, openTag, content, closeTag) => {

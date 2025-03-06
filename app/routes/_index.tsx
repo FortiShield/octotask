@@ -6,11 +6,20 @@ import { Header } from '~/components/header/Header';
 import BackgroundRays from '~/components/ui/BackgroundRays';
 
 export const meta: MetaFunction = () => {
-  return [{ title: 'Octotask' }, { name: 'description', content: 'Talk with Octotask, an AI assistant from OctoTask' }];
+  return [
+    { title: 'Octotask' },
+    { name: 'description', content: 'Talk with Octoatask, an AI assistant from OctoTask' },
+  ];
 };
 
 export const loader = () => json({});
 
+/**
+ * Landing page component for Octoatask
+ * Note: Settings functionality should ONLY be accessed through the sidebar menu.
+ * Do not add settings button/panel to this landing page as it was intentionally removed
+ * to keep the UI clean and consistent with the design system.
+ */
 export default function Index() {
   return (
     <div className="flex flex-col h-full w-full bg-octotask-elements-background-depth-1">

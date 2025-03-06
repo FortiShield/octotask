@@ -28,15 +28,17 @@ describe('StreamingMessageParser', () => {
       ['Foo bar <', 'Foo bar '],
       ['Foo bar <p', 'Foo bar <p'],
       [['Foo bar <', 's', 'p', 'an>some text</span>'], 'Foo bar <span>some text</span>'],
-    ])('should correctly parse chunks and strip out octotask artifacts (%#)', (input, expected) => {
+    ])('should correctly parse chunks and strip out octoatask artifacts (%#)', (input, expected) => {
       runTest(input, expected);
     });
   });
 
   describe('invalid or incomplete artifacts', () => {
     it.each<[string | string[], ExpectedResult | string]>([
+      ['Foo bar <b', 'Foo bar '],
       ['Foo bar <ba', 'Foo bar <ba'],
-      ['Foo bar <octotask', 'Foo bar '],
+      ['Foo bar <bol', 'Foo bar '],
+      ['Foo bar <octoatask', 'Foo bar '],
       ['Foo bar <octotaska', 'Foo bar <octotaska'],
       ['Foo bar <octotaskA', 'Foo bar '],
       ['Foo bar <octotaskArtifacs></octotaskArtifact>', 'Foo bar <octotaskArtifacs></octotaskArtifact>'],
@@ -45,7 +47,7 @@ describe('StreamingMessageParser', () => {
         'Before <octotaskArtifactt>foo</octotaskArtifact> After',
         'Before <octotaskArtifactt>foo</octotaskArtifact> After',
       ],
-    ])('should correctly parse chunks and strip out octotask artifacts (%#)', (input, expected) => {
+    ])('should correctly parse chunks and strip out octoatask artifacts (%#)', (input, expected) => {
       runTest(input, expected);
     });
   });
@@ -132,7 +134,7 @@ describe('StreamingMessageParser', () => {
           callbacks: { onArtifactOpen: 1, onArtifactClose: 1, onActionOpen: 0, onActionClose: 0 },
         },
       ],
-    ])('should correctly parse chunks and strip out octotask artifacts (%#)', (input, expected) => {
+    ])('should correctly parse chunks and strip out octoatask artifacts (%#)', (input, expected) => {
       runTest(input, expected);
     });
   });
@@ -153,7 +155,7 @@ describe('StreamingMessageParser', () => {
           callbacks: { onArtifactOpen: 1, onArtifactClose: 1, onActionOpen: 2, onActionClose: 2 },
         },
       ],
-    ])('should correctly parse chunks and strip out octotask artifacts (%#)', (input, expected) => {
+    ])('should correctly parse chunks and strip out octoatask artifacts (%#)', (input, expected) => {
       runTest(input, expected);
     });
   });

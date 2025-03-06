@@ -14,8 +14,8 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
   const isPreview = source === 'preview';
   const title = isPreview ? 'Preview Error' : 'Terminal Error';
   const message = isPreview
-    ? 'We encountered an error while running the preview. Would you like Octotask to analyze and help resolve this issue?'
-    : 'We encountered an error while running terminal commands. Would you like Octotask to analyze and help resolve this issue?';
+    ? 'We encountered an error while running the preview. Would you like Octoatask to analyze and help resolve this issue?'
+    : 'We encountered an error while running terminal commands. Would you like Octoatask to analyze and help resolve this issue?';
 
   return (
     <AnimatePresence>
@@ -24,7 +24,7 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.3 }}
-        className={`rounded-lg border border-octotask-elements-borderColor bg-octotask-elements-background-depth-2 p-4`}
+        className={`rounded-lg border border-octotask-elements-borderColor bg-octotask-elements-background-depth-2 p-4 mb-2`}
       >
         <div className="flex items-start">
           {/* Icon */}
@@ -84,7 +84,7 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
                   )}
                 >
                   <div className="i-ph:chat-circle-duotone"></div>
-                  Ask Octotask
+                  Ask Octoatask
                 </button>
                 <button
                   onClick={clearAlert}

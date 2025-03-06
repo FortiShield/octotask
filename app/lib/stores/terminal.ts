@@ -18,7 +18,7 @@ export class TerminalStore {
       import.meta.hot.data.showTerminal = this.showTerminal;
     }
   }
-  get octotaskTerminal() {
+  get octoataskTerminal() {
     return this.#octotaskTerminal;
   }
 
@@ -30,7 +30,7 @@ export class TerminalStore {
       const wc = await this.#webcontainer;
       await this.#octotaskTerminal.init(wc, terminal);
     } catch (error: any) {
-      terminal.write(coloredText.red('Failed to spawn octotask shell\n\n') + error.message);
+      terminal.write(coloredText.red('Failed to spawn octoatask shell\n\n') + error.message);
       return;
     }
   }

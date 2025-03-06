@@ -59,6 +59,7 @@ Instructions:
 5. If no perfect match exists, recommend the closest option
 
 Important: Provide only the selection tags in your response, no additional text.
+MOST IMPORTANT: YOU DONT HAVE TIME TO THINK JUST START RESPONDING BASED ON HUNCH
 `;
 
 const templates: Template[] = STARTER_TEMPLATES.filter((t) => !t.name.includes('shadcn'));
@@ -212,10 +213,10 @@ export async function getTemplates(templateName: string, title?: string) {
   filteredFiles = filteredFiles.filter((x) => comminLockFiles.includes(x.name) == false);
 
   // exclude    .octotask
-  filteredFiles = filteredFiles.filter((x) => x.path.startsWith('.octotask') == false);
+  filteredFiles = filteredFiles.filter((x) => x.path.startsWith('.octoatask') == false);
 
-  // check for ignore file in .octotask folder
-  const templateIgnoreFile = files.find((x) => x.path.startsWith('.octotask') && x.name == 'ignore');
+  // check for ignore file in .octoatask folder
+  const templateIgnoreFile = files.find((x) => x.path.startsWith('.octoatask') && x.name == 'ignore');
 
   const filesToImport = {
     files: filteredFiles,
@@ -247,7 +248,7 @@ ${file.content}
 </octotaskArtifact>
 `;
   let userMessage = ``;
-  const templatePromptFile = files.filter((x) => x.path.startsWith('.octotask')).find((x) => x.name == 'prompt');
+  const templatePromptFile = files.filter((x) => x.path.startsWith('.octoatask')).find((x) => x.name == 'prompt');
 
   if (templatePromptFile) {
     userMessage = `

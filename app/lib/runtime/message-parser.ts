@@ -1,5 +1,5 @@
-import type { ActionType, OctotaskAction, OctotaskActionData, FileAction, ShellAction } from '~/types/actions';
-import type { OctotaskArtifactData } from '~/types/artifact';
+import type { ActionType, OctoataskAction, OctoataskActionData, FileAction, ShellAction } from '~/types/actions';
+import type { OctoataskArtifactData } from '~/types/artifact';
 import { createScopedLogger } from '~/utils/logger';
 import { unreachable } from '~/utils/unreachable';
 
@@ -10,7 +10,7 @@ const ARTIFACT_ACTION_TAG_CLOSE = '</octotaskAction>';
 
 const logger = createScopedLogger('MessageParser');
 
-export interface ArtifactCallbackData extends OctotaskArtifactData {
+export interface ArtifactCallbackData extends OctoataskArtifactData {
   messageId: string;
 }
 
@@ -18,7 +18,7 @@ export interface ActionCallbackData {
   artifactId: string;
   messageId: string;
   actionId: string;
-  action: OctotaskAction;
+  action: OctoataskAction;
 }
 
 export type ArtifactCallback = (data: ArtifactCallbackData) => void;
@@ -47,8 +47,8 @@ interface MessageState {
   position: number;
   insideArtifact: boolean;
   insideAction: boolean;
-  currentArtifact?: OctotaskArtifactData;
-  currentAction: OctotaskActionData;
+  currentArtifact?: OctoataskArtifactData;
+  currentAction: OctoataskActionData;
   actionId: number;
 }
 
@@ -133,7 +133,7 @@ export class StreamingMessageParser {
                */
               actionId: String(state.actionId - 1),
 
-              action: currentAction as OctotaskAction,
+              action: currentAction as OctoataskAction,
             });
 
             state.insideAction = false;
@@ -179,7 +179,7 @@ export class StreamingMessageParser {
                 artifactId: currentArtifact.id,
                 messageId,
                 actionId: String(state.actionId++),
-                action: state.currentAction as OctotaskAction,
+                action: state.currentAction as OctoataskAction,
               });
 
               i = actionEndIndex + 1;
@@ -236,7 +236,7 @@ export class StreamingMessageParser {
                 id: artifactId,
                 title: artifactTitle,
                 type,
-              } satisfies OctotaskArtifactData;
+              } satisfies OctoataskArtifactData;
 
               state.currentArtifact = currentArtifact;
 
