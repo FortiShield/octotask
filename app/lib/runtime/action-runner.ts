@@ -1,24 +1,24 @@
 import type { WebContainer } from '@webcontainer/api';
 import { path as nodePath } from '~/utils/path';
 import { atom, map, type MapStore } from 'nanostores';
-import type { ActionAlert, OctoataskAction, FileHistory } from '~/types/actions';
+import type { ActionAlert, OctotaskAction, FileHistory } from '~/types/actions';
 import { createScopedLogger } from '~/utils/logger';
 import { unreachable } from '~/utils/unreachable';
 import type { ActionCallbackData } from './message-parser';
-import type { OctoataskShell } from '~/utils/shell';
+import type { OctotaskShell } from '~/utils/shell';
 
 const logger = createScopedLogger('ActionRunner');
 
 export type ActionStatus = 'pending' | 'running' | 'complete' | 'aborted' | 'failed';
 
-export type BaseActionState = OctoataskAction & {
+export type BaseActionState = OctotaskAction & {
   status: Exclude<ActionStatus, 'failed'>;
   abort: () => void;
   executed: boolean;
   abortSignal: AbortSignal;
 };
 
-export type FailedActionState = OctoataskAction &
+export type FailedActionState = OctotaskAction &
   Omit<BaseActionState, 'status'> & {
     status: Extract<ActionStatus, 'failed'>;
     error: string;
@@ -66,7 +66,7 @@ class ActionCommandError extends Error {
 export class ActionRunner {
   #webcontainer: Promise<WebContainer>;
   #currentExecutionPromise: Promise<void> = Promise.resolve();
-  #shellTerminal: () => OctoataskShell;
+  #shellTerminal: () => OctotaskShell;
   runnerId = atom<string>(`${Date.now()}`);
   actions: ActionsMap = map({});
   onAlert?: (alert: ActionAlert) => void;
@@ -74,7 +74,7 @@ export class ActionRunner {
 
   constructor(
     webcontainerPromise: Promise<WebContainer>,
-    getShellTerminal: () => OctoataskShell,
+    getShellTerminal: () => OctotaskShell,
     onAlert?: (alert: ActionAlert) => void,
   ) {
     this.#webcontainer = webcontainerPromise;

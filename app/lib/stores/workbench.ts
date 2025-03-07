@@ -94,8 +94,8 @@ export class WorkbenchStore {
   get showTerminal() {
     return this.#terminalStore.showTerminal;
   }
-  get octoataskTerminal() {
-    return this.#terminalStore.octoataskTerminal;
+  get octotaskTerminal() {
+    return this.#terminalStore.octotaskTerminal;
   }
   get alert() {
     return this.actionAlert;
@@ -272,7 +272,7 @@ export class WorkbenchStore {
       type,
       runner: new ActionRunner(
         webcontainer,
-        () => this.octoataskTerminal,
+        () => this.octotaskTerminal,
         (alert) => {
           if (this.#reloadedMessages.has(messageId)) {
             return;

@@ -74,7 +74,7 @@ export const AssistantMessage = memo(({ content, annotations }: AssistantMessage
                   {codeContext && (
                     <div className="code-context flex flex-col p4 border border-octotask-elements-borderColor rounded-md">
                       <h2>Context</h2>
-                      <div className="flex gap-4 mt-4 octoatask" style={{ zoom: 0.6 }}>
+                      <div className="flex gap-4 mt-4 octotask" style={{ zoom: 0.6 }}>
                         {codeContext.map((x) => {
                           const normalized = normalizedFilePath(x);
                           return (

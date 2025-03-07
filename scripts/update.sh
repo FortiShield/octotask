@@ -3,7 +3,7 @@
 # Exit on any error
 set -e
 
-echo "Starting OctoaTask update process..."
+echo "Starting OctoTask update process..."
 
 # Get the current directory
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"

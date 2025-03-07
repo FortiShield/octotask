@@ -213,10 +213,10 @@ export async function getTemplates(templateName: string, title?: string) {
   filteredFiles = filteredFiles.filter((x) => comminLockFiles.includes(x.name) == false);
 
   // exclude    .octotask
-  filteredFiles = filteredFiles.filter((x) => x.path.startsWith('.octoatask') == false);
+  filteredFiles = filteredFiles.filter((x) => x.path.startsWith('.octotask') == false);
 
-  // check for ignore file in .octoatask folder
-  const templateIgnoreFile = files.find((x) => x.path.startsWith('.octoatask') && x.name == 'ignore');
+  // check for ignore file in .octotask folder
+  const templateIgnoreFile = files.find((x) => x.path.startsWith('.octotask') && x.name == 'ignore');
 
   const filesToImport = {
     files: filteredFiles,
@@ -248,7 +248,7 @@ ${file.content}
 </octotaskArtifact>
 `;
   let userMessage = ``;
-  const templatePromptFile = files.filter((x) => x.path.startsWith('.octoatask')).find((x) => x.name == 'prompt');
+  const templatePromptFile = files.filter((x) => x.path.startsWith('.octotask')).find((x) => x.name == 'prompt');
 
   if (templatePromptFile) {
     userMessage = `

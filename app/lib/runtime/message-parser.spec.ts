@@ -132,7 +132,7 @@ describe('StreamingMessageParser', () => {
           callbacks: { onArtifactOpen: 1, onArtifactClose: 1, onActionOpen: 0, onActionClose: 0 },
         },
       ],
-    ])('should correctly parse chunks and strip out octoatask artifacts (%#)', (input, expected) => {
+    ])('should correctly parse chunks and strip out octotask artifacts (%#)', (input, expected) => {
       runTest(input, expected);
     });
   });
@@ -153,7 +153,7 @@ describe('StreamingMessageParser', () => {
           callbacks: { onArtifactOpen: 1, onArtifactClose: 1, onActionOpen: 2, onActionClose: 2 },
         },
       ],
-    ])('should correctly parse chunks and strip out octoatask artifacts (%#)', (input, expected) => {
+    ])('should correctly parse chunks and strip out octotask artifacts (%#)', (input, expected) => {
       runTest(input, expected);
     });
   });

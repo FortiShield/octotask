@@ -23,9 +23,9 @@ export interface BuildAction extends BaseAction {
   type: 'build';
 }
 
-export type OctoataskAction = FileAction | ShellAction | StartAction | BuildAction;
+export type OctotaskAction = FileAction | ShellAction | StartAction | BuildAction;
 
-export type OctoataskActionData = OctoataskAction | BaseAction;
+export type OctotaskActionData = OctotaskAction | BaseAction;
 
 export interface ActionAlert {
   type: string;

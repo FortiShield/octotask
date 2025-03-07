@@ -54,7 +54,7 @@ export async function newShellProcess(webcontainer: WebContainer, terminal: ITer
 
 export type ExecutionResult = { output: string; exitCode: number } | undefined;
 
-export class OctoataskShell {
+export class OctotaskShell {
   #initialized: (() => void) | undefined;
   #readyPromise: Promise<void>;
   #webcontainer: WebContainer | undefined;
@@ -290,5 +290,5 @@ export function cleanTerminalOutput(input: string): string {
 }
 
 export function newOctotaskShellProcess() {
-  return new OctoataskShell();
+  return new OctotaskShell();
 }

@@ -93,7 +93,7 @@ ${commandString}
 }
 
 export function escapeOctotaskArtifactTags(input: string) {
-  // Regular expression to match octoataskArtifact tags and their content
+  // Regular expression to match octotaskArtifact tags and their content
   const regex = /(<octotaskArtifact[^>]*>)([\s\S]*?)(<\/octotaskArtifact>)/g;
 
   return input.replace(regex, (match, openTag, content, closeTag) => {
@@ -109,7 +109,7 @@ export function escapeOctotaskArtifactTags(input: string) {
 }
 
 export function escapeOctotaskAActionTags(input: string) {
-  // Regular expression to match octoataskArtifact tags and their content
+  // Regular expression to match octotaskArtifact tags and their content
   const regex = /(<octotaskAction[^>]*>)([\s\S]*?)(<\/octotaskAction>)/g;
 
   return input.replace(regex, (match, openTag, content, closeTag) => {
